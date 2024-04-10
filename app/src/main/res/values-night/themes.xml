@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Pr9_ins" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+
+    <style name="Text">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="ButtonBackground1">
+        <item name="android:backgroundTint">#B9BABA</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="ButtonBackground2">
+        <item name="android:backgroundTint">#FFFFFF</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+
+    <style name="IconBackground">
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+    <style name="BottomNavBackground">
+        <item name="android:background">@color/black</item>
+    </style>
+  <!-- Base application theme. -->
+    <style name="Base.Theme.Pr9_ins" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+
+</resources>

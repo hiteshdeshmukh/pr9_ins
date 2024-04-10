@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".SignInPages.SignUpActivity">
+
+    <TextView
+        android:id="@+id/logo1"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_height="80dp"
+        android:text=" Socialize "
+        android:textColor="@color/blue"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        android:gravity="center">
+    </TextView>
+
+    <EditText
+        android:id="@+id/name1"
+        android:layout_marginTop="35dp"
+        android:autofillHints="name"
+        android:background="@drawable/edittext_border"
+        android:padding="10dp"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/PhoneNo1"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:layout_marginTop="15dp"
+        android:hint="Phone No."
+        android:background="@drawable/edittext_border"
+        android:padding="10dp"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/email1"
+        android:autofillHints="emailAddress"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:hint="Email"
+        android:background="@drawable/edittext_border"
+        android:inputType="textEmailAddress" />
+
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:autofillHints="password"
+        android:background="@drawable/edittext_border"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/signup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/blue"
+        android:text="Sign Up" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Have an Account?"/>
+
+        <TextView
+            android:id="@+id/loginHere1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:text="Login Here"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp">
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  or sign up with  "/>
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_border"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:src="@drawable/googleicon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Google" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

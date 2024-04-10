@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "894807268856",
+    "firebase_url": "https://pr9-ins-default-rtdb.firebaseio.com",
+    "project_id": "pr9-ins",
+    "storage_bucket": "pr9-ins.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894807268856:android:b9ae1f3bda4f19ada30a0d",
+        "android_client_info": {
+          "package_name": "com.example.pr9_ins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894807268856-406l7lj59qncbj95lieu4a5pab0vqglp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pr9_ins",
+            "certificate_hash": "9c2d61ef4fa2c58ad973d0cd983e126362c293da"
+          }
+        },
+        {
+          "client_id": "894807268856-i06jkll3n0ecu2fcogqum1ukcflivrl5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp8cXGYjn3vyhjlKsk-IGudKKcMOKiyMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894807268856-i06jkll3n0ecu2fcogqum1ukcflivrl5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
