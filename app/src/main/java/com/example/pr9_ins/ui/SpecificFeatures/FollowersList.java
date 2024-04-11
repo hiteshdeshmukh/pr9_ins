@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.pr9_ins.Adapter.FollowersAdapter;
+import com.example.pr9_ins.Adapter.SearchUsersAdapter;
 import com.example.pr9_ins.Model.FollowModel;
 import com.example.pr9_ins.Model.UserModel;
 import com.example.pr9_ins.databinding.ActivityFollowersListBinding;
@@ -29,7 +30,7 @@ public class FollowersList extends AppCompatActivity {
     ActivityFollowersListBinding binding;
     FirebaseAuth auth;
     FirebaseDatabase database;
-    ArrayList<FollowModel> list;
+    ArrayList<UserModel> list  = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +41,10 @@ public class FollowersList extends AppCompatActivity {
        auth = FirebaseAuth.getInstance();
        database = FirebaseDatabase.getInstance();
 
-       list = new ArrayList<>();
-
-        FollowersAdapter followersAdapter = new FollowersAdapter(list,this);
+        SearchUsersAdapter searchUsersAdapter = new SearchUsersAdapter(this, list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.followersRecycler1.setLayoutManager(layoutManager);
-        binding.followersRecycler1.setAdapter(followersAdapter);
+        binding.followersRecycler1.setAdapter(searchUsersAdapter);
 
        database.getReference().child("Users")
                .child(auth.getUid())
@@ -54,12 +53,12 @@ public class FollowersList extends AppCompatActivity {
                    public void onDataChange(@NonNull DataSnapshot snapshot) {
                        for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                            list.clear();
-                           FollowModel followModel = dataSnapshot.getValue(FollowModel.class);
+                           UserModel followers = dataSnapshot.getValue(UserModel.class);
                            if (!dataSnapshot.getKey().equals(FirebaseAuth.getInstance().getUid())){
-                               list.add(followModel);
+                               list.add(followers);
                            }
                        }
-                        followersAdapter.notifyDataSetChanged();
+                       searchUsersAdapter.notifyDataSetChanged();
                    }
 
                    @Override

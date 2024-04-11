@@ -1,6 +1,6 @@
 package com.example.pr9_ins.SignInPages;
 
-import android.app.ProgressDialog;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,7 +36,6 @@ public class SignInActivity extends AppCompatActivity {
       FirebaseAuth auth;
       FirebaseUser currentUser;
       GoogleSignInClient mGoogleSignInClient;
-
       FirebaseDatabase database;
 
     @Override
@@ -127,7 +126,7 @@ public class SignInActivity extends AppCompatActivity {
                             users.setEmail(user.getEmail());
                             users.setName(user.getDisplayName());
                             users.setPhoneNo(user.getPhoneNumber());
-                            database.getReference().child("Users").child(user.getUid()).setValue(users);
+                            database.getReference().child("Users").child(user.getUid());
 
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             startActivity(intent);
@@ -150,44 +149,3 @@ public class SignInActivity extends AppCompatActivity {
     }
 
 }
-
-//        auth = FirebaseAuth.getInstance();
-//        progressDialog = new ProgressDialog(SignInActivity.this);
-//        progressDialog.setTitle("Login");
-//        progressDialog.setMessage("Login to your Account");
-//
-//        binding.login1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                progressDialog.show();
-//                auth.signInWithEmailAndPassword(binding.email1.getText().toString(),
-//                        binding.password1.getText().toString())
-//                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<AuthResult> task) {
-//                                if (task.isSuccessful()){
-//                                    Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-//                                    startActivity(intent);
-//                                }
-//                                else{
-//                                    Toast.makeText(SignInActivity.this,
-//                                            task.getException().getMessage(),
-//                                            Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//                        });
-//            }
-//        });
-//
-//        binding.signupHere1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        if (auth.getCurrentUser()!=null){
-//            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-//            startActivity(intent);
-//        }

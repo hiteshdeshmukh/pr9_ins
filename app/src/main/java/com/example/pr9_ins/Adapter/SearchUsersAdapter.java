@@ -1,7 +1,5 @@
 package com.example.pr9_ins.Adapter;
 
-import static java.security.AccessController.getContext;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -40,7 +38,8 @@ public class SearchUsersAdapter extends RecyclerView.Adapter<SearchUsersAdapter.
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.search_all_users_sample, parent, false);
+        View view = LayoutInflater.from(context)
+                .inflate(R.layout.search_all_users_sample, parent, false);
         return new viewHolder(view);
     }
 
@@ -104,8 +103,6 @@ public class SearchUsersAdapter extends RecyclerView.Adapter<SearchUsersAdapter.
 
                     }
                 });
-
-
 
     }
 
