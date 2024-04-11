@@ -30,42 +30,43 @@ public class FollowersList extends AppCompatActivity {
     ActivityFollowersListBinding binding;
     FirebaseAuth auth;
     FirebaseDatabase database;
-    ArrayList<FollowModel> list  = new ArrayList<>();
+    ArrayList<FollowModel> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       binding = ActivityFollowersListBinding.inflate(getLayoutInflater());
-       setContentView(binding.getRoot());
+        binding = ActivityFollowersListBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-       auth = FirebaseAuth.getInstance();
-       database = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         FollowersAdapter searchUsersAdapter = new FollowersAdapter(list, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.followersRecycler1.setLayoutManager(layoutManager);
         binding.followersRecycler1.setAdapter(searchUsersAdapter);
 
-       database.getReference().child("Users")
-               .child(auth.getUid())
-               .child("followers").addValueEventListener(new ValueEventListener() {
-                   @Override
-                   public void onDataChange(@NonNull DataSnapshot snapshot) {
-                       for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                           list.clear();
-                           FollowModel followers = dataSnapshot.getValue(FollowModel.class);
-                           if (!dataSnapshot.getKey().equals(FirebaseAuth.getInstance().getUid())){
-                               list.add(followers);
-                           }
-                       }
-                       searchUsersAdapter.notifyDataSetChanged();
-                   }
+        database.getReference().child("Users")
+                .child(auth.getUid())
+                .child("followers").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        list.clear();
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                            list.clear();
+                            FollowModel followers = dataSnapshot.getValue(FollowModel.class);
+                            if (!dataSnapshot.getKey().equals(FirebaseAuth.getInstance().getUid())) {
+                                list.add(followers);
+                            }
+                        }
+                        searchUsersAdapter.notifyDataSetChanged();
+                    }
 
-                   @Override
-                   public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                   }
-               });
+                    }
+                });
 
 
     }

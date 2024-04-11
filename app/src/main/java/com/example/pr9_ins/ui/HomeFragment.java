@@ -54,12 +54,16 @@ public class HomeFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        UserModel user = snapshot.getValue(UserModel.class);
-                        Picasso.get()
-                                .load(user.getProfilePhoto())
-                                .placeholder(R.drawable.baseline_person_outline_24)
-                                .into(binding.homeStoryImage1);
-                        binding.homeStoryName0.setText(user.getName());
+                        if(snapshot.exists()){
+                            UserModel user = snapshot.getValue(UserModel.class);
+
+                            Picasso.get()
+                                    .load(user.getProfilePhoto())
+                                    .placeholder(R.drawable.baseline_person_outline_24)
+                                    .into(binding.homeStoryImage1);
+                            binding.homeStoryName0.setText(user.getName());
+                        }
+
                     }
 
                     @Override
