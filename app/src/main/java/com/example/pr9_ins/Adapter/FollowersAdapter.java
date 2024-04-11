@@ -1,9 +1,11 @@
 package com.example.pr9_ins.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,8 @@ import com.example.pr9_ins.Model.UserModel;
 import com.example.pr9_ins.R;
 import com.example.pr9_ins.databinding.ActivityFollowersListBinding;
 import com.example.pr9_ins.databinding.SearchAllUsersSampleBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,12 +25,12 @@ import com.squareup.picasso.Picasso;
 
 import java.security.AccessControlContext;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.viewHolder> {
 
     ArrayList<FollowModel> list;
     Context context;
-
 
     public FollowersAdapter(ArrayList<FollowModel> list, Context context) {
         this.list = list;
@@ -47,7 +51,8 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.view
 
         FirebaseDatabase.getInstance().getReference()
                 .child("Users")
-                .child(followModel.getFollowedBy()).addListenerForSingleValueEvent(new ValueEventListener() {
+                .child(followModel.getFollowedBy())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         UserModel userModel = snapshot.getValue(UserModel.class);
@@ -56,6 +61,11 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.view
                                 .placeholder(R.drawable.baseline_person_24)
                                 .into(holder.binding.searchImage1);
                         holder.binding.searchName1.setText(userModel.getName());
+
+                        holder.binding.searchFollowButton.setBackgroundColor(Color.WHITE);
+                        holder.binding.searchFollowButton.setEnabled(false);
+                        holder.binding.searchFollowButton.setText("Follower");
+
                     }
 
                     @Override

@@ -22,6 +22,7 @@ import com.example.pr9_ins.R;
 import com.example.pr9_ins.SignInPages.SignInActivity;
 import com.example.pr9_ins.databinding.FragmentProfileBinding;
 import com.example.pr9_ins.ui.SpecificFeatures.FollowersList;
+import com.example.pr9_ins.ui.SpecificFeatures.FollowingScreenActivity;
 import com.example.pr9_ins.ui.SpecificFeatures.ProfileEditActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -38,7 +39,6 @@ public class ProfileFragment extends Fragment {
     RecyclerView highlightRecycler;
     ArrayList<HighlightModel> highlightModelArrayList;
     private FragmentProfileBinding binding;
-
     FirebaseAuth auth;
     FirebaseDatabase database;
 
@@ -84,6 +84,13 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        binding.following1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FollowingScreenActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         highlightRecycler = view.findViewById(R.id.highlightRecycler);

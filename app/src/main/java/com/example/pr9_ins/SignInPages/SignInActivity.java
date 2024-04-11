@@ -26,7 +26,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 
 public class SignInActivity extends AppCompatActivity {
@@ -126,6 +129,8 @@ public class SignInActivity extends AppCompatActivity {
                             users.setEmail(user.getEmail());
                             users.setName(user.getDisplayName());
                             users.setPhoneNo(user.getPhoneNumber());
+
+
                             database.getReference().child("Users").child(user.getUid());
 
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);

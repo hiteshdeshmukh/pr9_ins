@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Pr9_ins"
         tools:targetApi="31">
         <activity
+            android:name=".ui.SpecificFeatures.FollowingScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SpecificFeatures.FollowersList"
             android:exported="false" />
         <activity

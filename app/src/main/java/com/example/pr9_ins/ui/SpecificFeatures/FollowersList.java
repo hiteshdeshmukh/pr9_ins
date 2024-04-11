@@ -30,7 +30,7 @@ public class FollowersList extends AppCompatActivity {
     ActivityFollowersListBinding binding;
     FirebaseAuth auth;
     FirebaseDatabase database;
-    ArrayList<UserModel> list  = new ArrayList<>();
+    ArrayList<FollowModel> list  = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class FollowersList extends AppCompatActivity {
        auth = FirebaseAuth.getInstance();
        database = FirebaseDatabase.getInstance();
 
-        SearchUsersAdapter searchUsersAdapter = new SearchUsersAdapter(this, list);
+        FollowersAdapter searchUsersAdapter = new FollowersAdapter(list, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.followersRecycler1.setLayoutManager(layoutManager);
         binding.followersRecycler1.setAdapter(searchUsersAdapter);
@@ -53,7 +53,7 @@ public class FollowersList extends AppCompatActivity {
                    public void onDataChange(@NonNull DataSnapshot snapshot) {
                        for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                            list.clear();
-                           UserModel followers = dataSnapshot.getValue(UserModel.class);
+                           FollowModel followers = dataSnapshot.getValue(FollowModel.class);
                            if (!dataSnapshot.getKey().equals(FirebaseAuth.getInstance().getUid())){
                                list.add(followers);
                            }
