@@ -139,14 +139,12 @@ public class SignInActivity extends AppCompatActivity {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     if (snapshot.child("Users").hasChild(user.getUid())){
-                                        Toast.makeText(SignInActivity.this, "onDataChange If statement",Toast.LENGTH_SHORT).show();
+
                                     }else{
                                         FirebaseDatabase.getInstance()
                                                 .getReference()
                                                 .child("Users")
                                                 .child(user.getUid()).setValue(newUser);
-
-                                        Toast.makeText(SignInActivity.this, "onDataChange else statement",Toast.LENGTH_SHORT).show();
                                     }
 
                                 }
