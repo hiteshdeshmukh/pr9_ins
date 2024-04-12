@@ -63,7 +63,6 @@ public class HomeFragment extends Fragment {
                                     .into(binding.homeStoryImage1);
                             binding.homeStoryName0.setText(user.getName());
                         }
-
                     }
 
                     @Override
@@ -101,8 +100,10 @@ public class HomeFragment extends Fragment {
         database.getReference().child("posts").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                postModelArrayList.clear();
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     PostModel post = dataSnapshot.getValue(PostModel.class);
+                    post.setPostId(dataSnapshot.getKey());
                     postModelArrayList.add(post);
                 }
                 postAdapter.notifyDataSetChanged();

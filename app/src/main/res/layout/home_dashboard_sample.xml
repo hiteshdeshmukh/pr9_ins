@@ -88,20 +88,20 @@
             android:layout_height="35dp"
             android:gravity="center_vertical">
 
-            <ImageButton
-                android:id="@+id/homePostHeart0"
+            <ImageView
+                android:id="@+id/homePostLike0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 style="@style/IconBackground"
-                android:src="@drawable/baseline_heart" />
+                android:src="@drawable/baseline_heart_like_half" />
 
             <ImageButton
                 android:id="@+id/homePostComment0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:layout_toEndOf="@+id/homePostHeart0"
+                android:layout_toEndOf="@+id/homePostLike0"
                 style="@style/IconBackground"
                 android:src="@drawable/baseline_chat_bubble_outline_24" />
 

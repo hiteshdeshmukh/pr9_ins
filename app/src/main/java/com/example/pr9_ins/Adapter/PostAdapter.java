@@ -1,6 +1,7 @@
 package com.example.pr9_ins.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import com.example.pr9_ins.Model.PostModel;
 import com.example.pr9_ins.Model.UserModel;
 import com.example.pr9_ins.R;
 import com.example.pr9_ins.databinding.HomeDashboardSampleBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -43,6 +46,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder>{
                 .load(postModel.getPostImage())
                 .placeholder(R.drawable.baseline_person_outline_24)
                 .into(holder.binding.homePost0);
+
+//        holder.binding.homePostLikeText.setText(postModel.getPostLike()+"");
+
         String description = postModel.getPostDescription();
         if (description.equals("")){
             holder.binding.homePostCaption0.setVisibility(View.GONE);
@@ -62,6 +68,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder>{
                                 .placeholder(R.drawable.baseline_person_24)
                                 .into(holder.binding.homeProfileImage0);
                         holder.binding.homeProfileName0.setText(user.getName());
+
                     }
 
                     @Override
@@ -69,6 +76,47 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder>{
 
                     }
                 });
+
+        FirebaseDatabase.getInstance().getReference().child("posts").child(postModel.getPostId())
+                        .child("likes").child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            holder.binding.homePostLike0.setImageResource(R.drawable.baseline_favorite_24);
+                        }else {
+                            holder.binding.homePostLike0.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    FirebaseDatabase.getInstance().getReference()
+                                            .child("posts").child(postModel.getPostId())
+                                            .child("likes")
+                                            .child(FirebaseAuth.getInstance().getUid())
+                                            .setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+                                                    FirebaseDatabase.getInstance().getReference()
+                                                            .child("posts").child(postModel.getPostId())
+                                                            .child("postLike")
+                                                            .setValue(postModel.getPostLike() + 1 ).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                @Override
+                                                                public void onSuccess(Void unused) {
+                                                                    holder.binding.homePostLike0.setImageResource(R.drawable.baseline_favorite_24);
+                                                                }
+                                                            });
+                                                }
+                                            });
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
     }
 
     @Override

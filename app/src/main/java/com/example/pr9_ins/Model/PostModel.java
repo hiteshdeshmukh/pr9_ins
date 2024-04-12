@@ -2,6 +2,15 @@ package com.example.pr9_ins.Model;
 
 public class PostModel {
     private String postId, postImage, postedBy, postDescription, postedAt;
+    private int postLike;
+
+    public int getPostLike() {
+        return postLike;
+    }
+
+    public void setPostLike(int postLike) {
+        this.postLike = postLike;
+    }
 
     public PostModel() {
     }
