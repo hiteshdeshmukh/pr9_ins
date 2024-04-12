@@ -56,11 +56,14 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.view
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         UserModel userModel = snapshot.getValue(UserModel.class);
-                        Picasso.get()
-                                .load(userModel.getProfilePhoto())
-                                .placeholder(R.drawable.baseline_person_24)
-                                .into(holder.binding.searchImage1);
-                        holder.binding.searchName1.setText(userModel.getName());
+
+                        if(snapshot.exists()){
+                            Picasso.get()
+                                    .load(userModel.getProfilePhoto())
+                                    .placeholder(R.drawable.baseline_person_24)
+                                    .into(holder.binding.searchImage1);
+                            holder.binding.searchName1.setText(userModel.getName());
+                        }
 
                         holder.binding.searchFollowButton.setBackgroundColor(Color.WHITE);
                         holder.binding.searchFollowButton.setEnabled(false);

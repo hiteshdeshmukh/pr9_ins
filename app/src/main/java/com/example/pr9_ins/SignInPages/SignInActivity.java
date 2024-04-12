@@ -155,11 +155,9 @@ public class SignInActivity extends AppCompatActivity {
                                 }
                             });
 
-
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             startActivity(intent);
                             Toast.makeText(SignInActivity.this, "Signed in with Google",Toast.LENGTH_SHORT).show();
-
                         }else{
                             Log.w("TAG","signInWithCredential:failure",task.getException());
                         }
