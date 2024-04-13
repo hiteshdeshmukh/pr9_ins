@@ -1,10 +1,16 @@
 package com.example.pr9_ins.Adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Gainmap;
+import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +20,7 @@ import com.example.pr9_ins.Model.UserModel;
 import com.example.pr9_ins.R;
 import com.example.pr9_ins.databinding.HomeDashboardSampleBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -57,6 +64,22 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder>{
             holder.binding.homePostCaption0.setVisibility(View.VISIBLE);
         }
 
+        holder.binding.homePostComment0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "Comment",Toast.LENGTH_SHORT).show();
+                final Dialog dialog = new Dialog(v.getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.fragment_comment);
+
+                dialog.show();
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                dialog.getWindow().setGravity(Gravity.BOTTOM);
+
+            }
+        });
 
         FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(postModel.getPostedBy()).addValueEventListener(new ValueEventListener() {
