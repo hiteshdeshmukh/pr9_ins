@@ -75,7 +75,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder>{
                 dialog.show();
                 dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
+                dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation1;
                 dialog.getWindow().setGravity(Gravity.BOTTOM);
 
             }
