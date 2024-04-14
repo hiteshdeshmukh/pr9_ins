@@ -3,6 +3,15 @@ package com.example.pr9_ins.Model;
 public class PostModel {
     private String postId, postImage, postedBy, postDescription, postedAt;
     private int postLike;
+    private int commentCount;
+
+    public int getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
+    }
 
     public int getPostLike() {
         return postLike;
