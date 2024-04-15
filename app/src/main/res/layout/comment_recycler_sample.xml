@@ -60,19 +60,6 @@
 
         </LinearLayout>
 
-
-<!--        <ImageView-->
-<!--            android:id="@+id/commentLike0"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="5dp"-->
-<!--            style="@style/IconBackground"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_alignParentBottom="true"-->
-<!--            android:src="@drawable/baseline_heart_like_half" />-->
-
-
     </RelativeLayout>
 
 

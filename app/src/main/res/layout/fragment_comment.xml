@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/round_corner_background"
-    tools:context=".ui.SpecificFeatures.CommentFragment">
+    android:background="@drawable/round_corner_background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,8 +50,8 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             style="@style/IconBackground"
-            android:layout_marginEnd="9dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="1dp"
             android:layout_alignParentEnd="true"
             android:src="@drawable/baseline_send_24"/>
 

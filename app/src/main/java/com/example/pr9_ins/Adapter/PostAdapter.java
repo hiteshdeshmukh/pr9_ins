@@ -2,11 +2,8 @@ package com.example.pr9_ins.Adapter;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Gainmap;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +11,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,9 +22,7 @@ import com.example.pr9_ins.Model.PostModel;
 import com.example.pr9_ins.Model.UserModel;
 import com.example.pr9_ins.R;
 import com.example.pr9_ins.databinding.HomeDashboardSampleBinding;
-import com.example.pr9_ins.ui.SpecificFeatures.CommentFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -91,13 +84,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder>{
 
                 RecyclerView commentRecycler = dialog.findViewById(R.id.commentRecycler1);
                 EditText commentEditText = dialog.findViewById(R.id.commentText1);
-                EditText commentSampleText1 = dialog.findViewById(R.id.commentSampleText1);
-                EditText commentSampleText2 = dialog.findViewById(R.id.commentSampleText2);
                 ImageButton commentSendButton = dialog.findViewById(R.id.commentSendButton1);
 
                 ArrayList<CommentModel> commentModelArrayList = new ArrayList<>();
 
-                // *context error -> context = this
+
 
                 CommentAdapter commentAdapter = new CommentAdapter(context,commentModelArrayList);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(context);
