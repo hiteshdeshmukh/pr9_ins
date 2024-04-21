@@ -123,6 +123,7 @@
                 style="@style/TextColor" />
 
             <TextView
+                android:id="@+id/profileBio1"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Maksad nahi bhulna dosto" />
@@ -134,6 +135,7 @@
                 style="@style/TextColor" />
 
             <TextView
+                android:id="@+id/profileWebsite1"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:text="@string/hyperlink" />

@@ -54,6 +54,9 @@ public class ProfileEditActivity extends AppCompatActivity {
                                             .into(binding.ProfileImage1);
 
                                     binding.editProfilename.setText(user.getName());
+                                    binding.editprofileUsername.setText(user.getUsername());
+                                    binding.editProfileBio.setText(user.getBio());
+                                    binding.editProfileGender.setText(user.getGender());
                                 }
                             }
 
@@ -70,6 +73,24 @@ public class ProfileEditActivity extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(intent, 2);
+            }
+        });
+
+        binding.editProfileConfirmChangeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserModel userModel = new UserModel();
+                userModel.setName(binding.editProfilename.getText().toString());
+                userModel.setUsername(binding.editprofileUsername.getText().toString());
+                userModel.setBio(binding.editProfileBio.getText().toString());
+                userModel.setGender(binding.editProfileGender.getText().toString());
+
+                database.getReference().child("Users").child(auth.getUid()).child("username").setValue(userModel.getUsername());
+                database.getReference().child("Users").child(auth.getUid()).child("name").setValue(userModel.getName());
+                database.getReference().child("Users").child(auth.getUid()).child("bio").setValue(userModel.getBio());
+                database.getReference().child("Users").child(auth.getUid()).child("gender").setValue(userModel.getGender());
+
+                Toast.makeText(ProfileEditActivity.this, "Data Successfully Updated", Toast.LENGTH_SHORT).show();
             }
         });
     }

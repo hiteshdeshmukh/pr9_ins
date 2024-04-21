@@ -45,7 +45,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder>{
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.home_dashboard_sample,parent,false);
+        View view = LayoutInflater.from(context)
+                .inflate(R.layout.home_dashboard_sample,parent,false);
         return new viewHolder(view);
     }
 
@@ -174,8 +175,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.viewHolder>{
 
             }
         });
-
-
 
         FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(postModel.getPostedBy()).addValueEventListener(new ValueEventListener() {

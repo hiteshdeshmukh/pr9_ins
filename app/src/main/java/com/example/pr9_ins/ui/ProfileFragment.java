@@ -66,6 +66,7 @@ public class ProfileFragment extends Fragment {
 
                             binding.ProfileName1.setText(user.getName());
                             binding.followersCount1.setText(user.getFollowerCount()+"");
+                            binding.profileBio1.setText(user.getBio());
                         }
                     }
 

@@ -42,6 +42,8 @@
     <style name="BottomNavBackground">
         <item name="android:background">?android:attr/windowBackground</item>
     </style>
+
+
   <!-- Base application theme. -->
     <style name="Base.Theme.Pr9_ins" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
